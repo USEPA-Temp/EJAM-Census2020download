@@ -6,18 +6,48 @@
 \title{Census 2020 block data for US - a few useful variables}
 \description{
 see \url{https://www2.census.gov/programs-surveys/decennial/2020/technical-documentation/complete-tech-docs/summary-file/2020Census_PL94_171Redistricting_StatesTechDoc_English.pdf}
+
+blocks2020 file has Puerto Rico but not Island Territories (USVI/Guam/Mariana/Samoa)
+With PR, sum(blocks2020$pop) is  334735155
+without Puerto Rico, sum(blocks2020$pop\link{blocks2020$ST != 'PR'}) is 331449281
+which matches US Census 2020 population 331,449,281 found here:
+\link{https://www.census.gov/quickfacts/fact/table/US/POP010220#POP010220}
 }
 \details{
 see Census website for details
 See \link{census2020_read} and
 \link{census_col_names_map} and \link{census2020_clean} for how this was created.
 \preformatted{
- Has 15-digit FIPS code for each Census block,
- block population count, and latitude, longitude of internal point.
-         fipsblock ST      lat       lon pop
- 1 020130001001000 AK 55.43308 -162.7241   0
- 2 020130001001001 AK 55.28475 -163.0098   0
- 3 020130001001002 AK 55.39261 -162.7549   0
-
+  
+ The 2020 Census blocks dataset here has these fields:
+ 
+ 15-digit FIPS code for each Census block,
+ block population count, and latitude, longitude of internal point
+ ST is the abbreviation for the State.
+ bgid is an integer unique ID to use as a key (more efficient than FIPS)
+ bgfips is the parent blockgroup's FIPS (12 characters), 
+ used to join to blockgroup indicators such as those in EJSCREEN.
+ 
+blockid       blockfips       bgfips      lat       lon ST pop
+1       1 100010401001000 100010401001 39.23495 -75.64114 DE 108
+2       2 100010401001001 100010401001 39.23114 -75.65305 DE  44
+3       3 100010401001002 100010401001 39.23979 -75.66716 DE  74
+ 
+ The 2010 blocks dataset had all these fields:
+   # names(blockdata)
+  [1] "BLOCKID"            "BLOCKGROUPFIPS"    ***
+  [3] "STUSAB"             "STATE"             
+  [5] "COUNTY"             "TRACT"             
+  [7] "BLKGRP"             "BLOCK"             
+  [9] "POP100"             "HU100"             ***
+  [11] "INTPTLAT"           "INTPTLON"         *** 
+  [13] "BLOCK_LAT_RAD"      "BLOCK_LONG_RAD"    
+  [15] "BLOCK_X"            "BLOCK_Y"           
+  [17] "BLOCK_Z"            "ID"                
+  [19] "GRID_X"             "GRID_Y"            
+  [21] "GRID_Z"             "Census2010Totalpop"
+  
  }
+For details on FIPS, see
+\url{https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html}
 }

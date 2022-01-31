@@ -1,6 +1,6 @@
 Package: census2020download
 Title: 2020 Census Blocks and Tools to Download from FTP
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Mark",
            family = "Corrales",
@@ -11,7 +11,10 @@ Description: This package has basic functions for downloading from FTP,
   unzipping, reading the 2020 Census data for some or all US States 
   into a single data.frame. It provides a dataset of all US blocks
   with a few key variables like population count, lat/lon of internal point, 
-  FIPS, area, and also some basic race ethnicity counts.
+  FIPS.
+  (It downloads and also could retain some other columns like 
+  area, and some basic race ethnicity counts,
+  with small changes to some source code).
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8

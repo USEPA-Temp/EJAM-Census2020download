@@ -1,8 +1,7 @@
 #' Compile Census 2020 block data for all US states once downloaded and unzipped
 #'
 #' @description
-#'   Warning: Code is not tested.
-#'   Work in progress - works OK for file 1, but probably not files 2 and 3.
+#'   Not tested. Works for file 1, but maybe not files 2 and 3.
 #'   Attempts to read files already downloaded and unzipped, data files for specified states
 #'   from the US Census Bureau's FTP site for Decennial Census file data.
 #'   see \url{https://www2.census.gov/programs-surveys/decennial/2020/technical-documentation/complete-tech-docs/summary-file/2020Census_PL94_171Redistricting_StatesTechDoc_English.pdf}
@@ -227,10 +226,10 @@ census2020_read <- function(folder='.', filenumbers=1, mystates, sumlev=750, bes
 
   for (i in 1:length(mystates)) {
 
-    print(paste0('Reading ', toupper(mystates[i])))
+    cat(paste0('Reading ', toupper(mystates[i])), '\n')
 
     header <- try(readr::read_delim(header_file_path[i], col_names = header_col_names, show_col_types = FALSE, delim = "|"))
-    if (class(header) == "try-error") {print(header_file_path[i]); stop('cannot find or read file')}
+    if ("try-error" %in% class(header)) {print(header_file_path[i]); stop('cannot find or read file')}
 
     # KEEP ONLY BLOCKS NOT OTHER GEOGRAPHIES LIKE TRACT
     header <- header[header$SUMLEV == sumlev, ]
@@ -289,5 +288,5 @@ census2020_read <- function(folder='.', filenumbers=1, mystates, sumlev=750, bes
     combinedstates <- rbind(combinedstates, combine)
     # end of 1 state
   }
-  return(combinedstates) # a SINGLE compilation of states and filenumbers
+  return(combinedstates) # a SINGLE data.frame compilation of states and filenumbers
 }

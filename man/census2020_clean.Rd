@@ -4,14 +4,20 @@
 \alias{census2020_clean}
 \title{clean up download block data}
 \usage{
-census2020_clean(x)
+census2020_clean(
+  x,
+  cols_to_keep = c("blockid", "blockfips", "bgfips", "lat", "lon", "ST", "pop")
+)
 }
 \arguments{
 \item{x}{data from census2020_read()}
+
+\item{cols_to_keep}{optional, which (renamed) columns to retain and return}
 }
 \value{
 same as input but drops some columns, renames some columns, etc.
 }
 \description{
-clean up download block data
+Renames variables (columns) based on census_col_names_map,
+adds columns like blockid, ST and bgfips, drops columns not needed.
 }
