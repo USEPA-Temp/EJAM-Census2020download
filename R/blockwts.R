@@ -10,7 +10,6 @@
 #'   average person in the buffer, as the population weighted mean
 #'   of blockgroup scores of all the blocks in the buffer.
 #'   
-#' @seealso \link{make_blockwts}
 #' @details  This is drawn from blocks2020 dataset 
 #' 
 #'  \preformatted{
