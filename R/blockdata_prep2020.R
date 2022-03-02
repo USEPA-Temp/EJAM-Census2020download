@@ -129,13 +129,13 @@ blockdata_prep2020 <- function(dt, vintage = 2020) {
   #
   # Boundaries changed: 
   #   Census 2020 more accurately reflects where people now live, 
-  #   but bgstats from EJSCREEN represent the old boundaries of a bg and can differ from new ones. 
+  #   but blockgroupstats from EJSCREEN represent the old boundaries of a bg and can differ from new ones. 
   #   Census 2010 vs 2020 boundaries are documented here: 
   #   https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.html#blkgrp
   #   https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.html#t10t20 
   # 
   # FIPS changed in Alaska: 
-  #   Small problem in part of Alaska where buffering and/or getting bgstats 
+  #   Small problem in part of Alaska where buffering and/or getting blockgroupstats 
   #   would fail using census 2020. 
   #   ****  One Alaska county FIPS (containing 11 blockgroups) in EJSCREEN through March 2022,
   #   is not in Census 2020: Valdez-Cordova Census Area, Alaska     bg20$FIPS.COUNTY == '02261'   
