@@ -136,7 +136,7 @@ blockdata_prep2020 <- function(dt, vintage = 2020) {
   # 
   # FIPS changed in Alaska: 
   #   Small problem in part of Alaska where buffering and/or getting blockgroupstats 
-  #   would fail using census 2020. 
+  #   would fail using census 2020. EJScreen 2.0 as of March/April 2022 used Census 2010 not 2020 geographies.
   #   ****  One Alaska county FIPS (containing 11 blockgroups) in EJSCREEN through March 2022,
   #   is not in Census 2020: Valdez-Cordova Census Area, Alaska     bg20$FIPS.COUNTY == '02261'   
   #   population 9,301 per ACS 2014-2018
