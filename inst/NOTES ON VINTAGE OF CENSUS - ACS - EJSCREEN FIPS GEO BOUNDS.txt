@@ -1,0 +1,6 @@
+
+
+Census 2010 geos - used for ACS 2015-2019, & EJScreen 2.0 2022-06 and older 
+Census 2020 geos - used for ACS 2016-2020, & EJScreen 2.1 2022-07 or 2022-08 and later 
+See Census vs ACS geos info here: 
+https://www.census.gov/programs-surveys/acs/geography-acs/geography-boundaries-by-year.html
